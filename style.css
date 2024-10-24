@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  align-content: center;
+}
+
+#game-area {
+  margin: 0 auto;
+  background-color: black;
+  height: 80vh;
+  width: 80vw;
+  position: relative;
+}
+
+#player{
+    width: 4rem;
+    height: 4rem;
+    background-color: rgb(1, 210, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+}

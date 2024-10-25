@@ -8,12 +8,16 @@ class Game {
     this.height = this.gameArea.getBoundingClientRect().height;
     this.enemies = [];
     this.livesElement = document.querySelector("#lives");
+    this.levelElement = document.querySelector("#level");
     this.gameOverScreen = document.querySelector("#game-over");
     this.updateLives();
   }
 
   updateLives() {
     this.livesElement.innerText = "❤️".repeat(this.lives);
+  }
+  updateLevel() {
+    this.levelElement.innerText = this.level.toString();
   }
 }
 

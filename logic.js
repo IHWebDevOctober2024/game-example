@@ -52,10 +52,10 @@ function gameLoop() {
     if (frames % 100 === 0) {
       // this is going to run every 100 frames
       new Enemy();
-      console.log(game.enemies);
     }
     if (frames % 500 === 0) {
       game.level++;
+      game.updateLevel();
     }
     requestAnimationFrame(gameLoop);
   }
@@ -81,10 +81,10 @@ function crashTest(enemy) {
     playerBottomEdge > enemyTopEdge
   ) {
     /* Substract score and destroy enemy */
-    console.log("CRASH!!");
     game.lives--;
     game.updateLives();
     enemy.destroy();
+    appearPowElement(enemy.left, enemy.top);
     if (game.lives <= 0) {
       game.isGameOver = true;
       game.gameOverScreen.style.display = "flex";
@@ -114,3 +114,17 @@ restartButtonElement.addEventListener("click", () => {
   // window.location.reload()
   restartGame();
 });
+
+function appearPowElement(left, top) {
+  const powElement = document.createElement("div");
+  powElement.classList.add("pow");
+  powElement.style.left = left + "px";
+  powElement.style.top = top + "px";
+  game.gameArea.appendChild(powElement);
+  game.gameArea.classList.add("shake");
+
+  setTimeout(() => {
+    powElement.remove();
+    game.gameArea.classList.remove("shake");
+  }, 300);
+}

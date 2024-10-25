@@ -11,17 +11,65 @@ body {
 
 #game-area {
   margin: 0 auto;
-  background-color: black;
   height: 80vh;
   width: 80vw;
   position: relative;
+  overflow: hidden;
+  background-image: url("./assets/background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-#player{
-    width: 4rem;
-    height: 4rem;
-    background-color: rgb(1, 210, 1);
-    position: absolute;
-    top: 0;
-    left: 0;
+#player,
+.enemy,
+.enemy2 {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0;
+}
+
+#player {
+  background-image: url("./assets/polly.png");
+  height: 60px;
+}
+
+.enemy {
+  background-image: url("./assets/shark.png");
+  width: 10rem;
+  height: 10rem;
+}
+
+.enemy2 {
+  background-image: url("./assets/shark.png");
+  width: 20rem;
+  height: 20rem;
+}
+
+#lives {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  left: 1rem;
+}
+
+#game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  background-color: azure;
+  transform: translate(-50%, -50%);
+  padding: 3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  display: none;
 }
